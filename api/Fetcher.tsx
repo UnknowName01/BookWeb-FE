@@ -152,7 +152,8 @@ export async function fetcher<T>(
     headers: {
       "Content-Type": "application/json",
     },
-    baseURL: "http://localhost:3001/api/v1",
+    // baseURL: "http://localhost:3001/api/v1",
+    baseURL: Config.NETWORK_CONFIG.API_BASE_URL,
     timeout: Config.NETWORK_CONFIG.TIMEOUT,
   });
 
