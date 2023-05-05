@@ -16,7 +16,7 @@ export default function PostToSelf(): JSX.Element {
   const handleSubmitBook = (value: any) => {
     console.log("valuess", value);
 
-    createBookMutate.mutate(value, {
+    createBookMutate.mutate(category, {
       onSuccess: (res) => {
         console.log("|asdasdasdasd", res);
         notification.success({

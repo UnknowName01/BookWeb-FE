@@ -54,45 +54,10 @@ const routes: IRoute[] = [
     isLanding: true,
   },
   {
-    path: "/payment",
-    name: "Thanh toán",
-    isSidebar: false,
-    isLanding: true,
-  },
-  {
-    path: "/manager_popup",
-    name: "Quản lý Popup",
-    isSidebar: true,
-  },
-  {
     path: "/list_posting",
     name: "Danh sách bài đăng",
     isSidebar: false,
     isLanding: true,
-  },
-  {
-    path: "/login_page",
-    name: "Quản lý Popup",
-    isSidebar: true,
-  },
-  {
-    path: "/chat-seller",
-    name: "chat seller",
-    isSidebar: false,
-    isLanding: true,
-  },
-  {
-    path: "/blogs",
-    name: "Blogs",
-    isSidebar: true,
-    icon: <Icon icon="blog" size="40" />,
-    children: [
-      {
-        path: "",
-        name: "",
-        isSidebar: false,
-      },
-    ],
   },
 ];
 

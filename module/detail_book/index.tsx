@@ -180,20 +180,16 @@ export function DetailBook(): JSX.Element {
               </div>
               <div className="row-text">
                 <div className="title">Lượt xem</div>
-                <div className="detail">
-                  {getDetailBook?.data?.watchQuantity ?? 0}
-                </div>
+                <div className="detail">{dataCurrent?.coverType ?? 0}</div>
               </div>
               <div className="row-text">
                 <div className="title">Yêu thích</div>
-                <div className="detail">
-                  {getDetailBook?.data?.likeQuantity ?? 0}
-                </div>
+                <div className="detail">{dataCurrent?.statusQuo ?? 0}</div>
               </div>
               <div className="row-text">
                 <div className="title">Dislike</div>
                 <div className="detail">
-                  {getDetailBook?.data?.dislikeQuantity ?? 0}
+                  {dataCurrent?.subcategoryName ?? 0}
                 </div>
               </div>
             </div>

@@ -37,20 +37,6 @@ function getAllUser() {
   });
 }
 
-function getPercent() {
-  return fetcher({
-    url: "/recomment/percent_all",
-    method: "get",
-  });
-}
-
-function tongReaction() {
-  return fetcher({
-    url: "/recomment/percent_user_category",
-    method: "get",
-  });
-}
-
 function getAllCategory() {
   return fetcher({
     url: path.categoryPath,
@@ -71,6 +57,4 @@ export default {
   getAllUser,
   getUser,
   getAllCategory,
-  getPercent,
-  tongReaction,
 };

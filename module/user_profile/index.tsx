@@ -20,7 +20,6 @@ import {
 import {PurchaseOrderManagerment} from "@app/module/user_profile/Components/ListTab/PurchaseOrderManagerment";
 import {HistoryPost} from "@app/module/user_profile/Components/ListTab/HistoryPost";
 import {Complaint} from "@app/module/user_profile/Components/ListTab/Complaint";
-import {Statistical} from "@app/module/user_profile/Components/Statistical";
 
 export function UserProfile(): JSX.Element {
   const [keyTab, setKeyTab] = useState<string>("UserInfor");
@@ -36,8 +35,8 @@ export function UserProfile(): JSX.Element {
       case "ManagerUserAdmin":
         element = <ManagerUserAdmin />;
         break;
-      case "Statistical":
-        element = <Statistical />;
+      case "HistoryPost":
+        element = <HistoryPost />;
         break;
       case "PurchaseOrderManagerment":
         element = <PurchaseOrderManagerment />;
@@ -64,11 +63,6 @@ export function UserProfile(): JSX.Element {
     {
       tabName: "Quản lí danh mục sách(Admin)",
       key: "CategoryManager",
-      icon: <GlobalOutlined />,
-    },
-    {
-      tabName: "Thống kê",
-      key: "Statistical",
       icon: <GlobalOutlined />,
     },
   ];

@@ -65,7 +65,7 @@ function searchPost(search: string) {
 }
 
 function createBook(params): Promise<any> {
-  return fetcher({url: path.createBookPath, method: "post", data: params});
+  return fetcher({url: path.createBookPath, method: "post", params: params});
 }
 
 function deleteBook(params: {id: number}): Promise<any> {

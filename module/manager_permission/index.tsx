@@ -84,7 +84,7 @@ export function ManagerPermission(): JSX.Element {
   const getDataListAllCity = (): Promise<any> => ApiBook.getAllCity();
   const getDataCity = useQuery("GET_DATA_CITY", getDataListAllCity);
   if (getDataCity?.data) {
-    getDataCity?.data.map((item: any) =>
+    getDataCity.data.map((item: any) =>
       listDataCity.push({
         value: item,
         label: item,

@@ -19,21 +19,8 @@ function InputGlobal(props: InputProps): JSX.Element {
   return <Input {...props} />;
 }
 
-function InputAntdGlobal(props: InputProps): JSX.Element {
-  return <InputAntd {...props} className="input-global" />;
-}
-
 function InputPasswordGlobal(props: InputProps): JSX.Element {
   return <Input.Password {...props} />;
-}
-
-function CheckboxGlobal(props: CheckboxProps): JSX.Element {
-  return <Checkbox {...props} />;
-}
-
-function InputSearchGlobal(props: SearchProps): JSX.Element {
-  const {Search} = InputAntd;
-  return <Search {...props} />;
 }
 
 function InputLinkGlobal(props: InputLinkGlobalProps): JSX.Element {
@@ -78,11 +65,4 @@ function InputLinkGlobal(props: InputLinkGlobalProps): JSX.Element {
   );
 }
 
-export {
-  InputGlobal,
-  InputPasswordGlobal,
-  CheckboxGlobal,
-  InputSearchGlobal,
-  InputLinkGlobal,
-  InputAntdGlobal,
-};
+export {InputGlobal, InputPasswordGlobal, InputLinkGlobal};

@@ -10,6 +10,9 @@ import moment from "moment";
 import {ModalConfirmCustom} from "@app/components/ModalConfirmCustom";
 
 export default function ListAllBook(): JSX.Element {
+  const router = useRouter();
+  const user = useSelector((state: any) => state.user);
+
   // handle getDataListAllBook
   const getDataListAllBook = (): Promise<any> => ApiBook.getAllPost();
   const dataListBook = useQuery(
@@ -30,11 +33,10 @@ export default function ListAllBook(): JSX.Element {
         {
           onSuccess: (res) => {
             console.log("res", res);
-
+            dataListBook.refetch();
             notification.success({
               message: "Xoá thành công!",
             });
-            dataListBook.refetch();
           },
           onError: (res) => {
             console.log("error res", res);
