@@ -18,6 +18,7 @@ export interface ILoginResponse {
     // dob: string;
     // password: string;
     //Testparam: string;
+    // test
     accessToken?: string;
   };
 }
