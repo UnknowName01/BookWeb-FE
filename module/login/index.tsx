@@ -76,7 +76,7 @@ export function Login(): JSX.Element {
       },
       {
         onSuccess: (res: any) => {
-          console.log(res);
+          console.log("Loginuser", res);
           if (res) {
             dispatch(loginUser(res));
             router.push("/");

@@ -158,18 +158,21 @@ export async function fetcher<T>(
   });
 
   // Access Token
+  // console.log("defaultOptions", defaultOptions);
   if (defaultOptions.token) {
     apiClient.defaults.headers.common.Authorization = `Bearer ${defaultOptions.token}`;
   } else {
     if (defaultOptions.withToken) {
       const state = store.getState();
-      const token = state.user?.token;
-      console.log("token fetcher", token);
+      const token = state.user?.accessToken;
+      // console.log("token fetcher", state.user);
       if (token) {
         apiClient.defaults.headers.common.Authorization = `Bearer ${token}`;
       }
     }
   }
+
+  // console.log("token user", apiClient.defaults.headers.common.Authorization);
 
   return new Promise<T>((resolve, reject) => {
     apiClient
@@ -306,7 +309,7 @@ export async function fetcherWithMetadata<T>(
   // Access Token
   if (defaultOptions.withToken) {
     const state = store.getState();
-    const token = state.user?.accesstoken;
+    const token = state.user?.accessToken;
     if (token) {
       apiClient.defaults.headers.common.Authorization = `Bearer ${token}`;
     }
