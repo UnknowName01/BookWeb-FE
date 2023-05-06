@@ -17,6 +17,7 @@ export interface ILoginResponse {
     // imageUrl: string;
     // dob: string;
     // password: string;
+    //Testparam: string;
     accessToken?: string;
   };
 }
