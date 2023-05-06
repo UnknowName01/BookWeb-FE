@@ -2,7 +2,7 @@ import {fetcher} from "./Fetcher";
 import store from "../redux/store";
 
 export interface ILoginBody {
-  email: string;
+  username: string;
   password: string;
 }
 export interface ILoginResponse {

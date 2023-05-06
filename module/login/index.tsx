@@ -21,7 +21,7 @@ import {signInWithPopup, GoogleAuthProvider} from "@firebase/auth";
 import {useAuthState} from "react-firebase-hooks/auth";
 
 interface UserAccount {
-  userName: string;
+  username: string;
   password: string;
   pass_jwt: string;
 }
@@ -57,7 +57,7 @@ export function Login(): JSX.Element {
   }, [user]);
 
   const initialValues: UserAccount = {
-    userName: "",
+    username: "",
     password: "",
     pass_jwt: "",
   };
@@ -71,7 +71,7 @@ export function Login(): JSX.Element {
     // router.push("/home");
     login.mutate(
       {
-        userName: value.userName.trim(),
+        username: value.username.trim(),
         password: value.password.trim(),
       },
       {
@@ -112,13 +112,13 @@ export function Login(): JSX.Element {
             <div className="login-container">
               <div className="login-form-item">
                 <InputGlobal
-                  name="userName"
-                  placeholder="Email"
+                  name="username"
+                  placeholder="UserName"
                   prefix={<UserOutlined />}
                   className="input_login"
                   onPressEnter={(): void => handleSubmit()}
                 />
-                <ErrorMessageGlobal name="userName" />
+                <ErrorMessageGlobal name="username" />
               </div>
 
               <div className="login-form-item">
@@ -157,12 +157,13 @@ export function Login(): JSX.Element {
                   </span>
                 </div>
               </div>
-              <div className="login-social-group" onClick={handleLoginSocial}>
-                <div className="item-social">
-                  <GoogleOutlined style={{fontSize: 30, color: "red"}} />
-                  <span>Login by Google</span>
-                </div>
-              </div>
+
+              {/* <div className="login-social-group" onClick={handleLoginSocial}> */}
+              {/*  <div className="item-social"> */}
+              {/*    <GoogleOutlined style={{fontSize: 30, color: "red"}} /> */}
+              {/*    <span>Login by Google</span> */}
+              {/*  </div> */}
+              {/* </div> */}
 
               <ButtonGlobal
                 onClick={handleSubmit}
