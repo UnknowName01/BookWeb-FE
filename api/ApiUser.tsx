@@ -32,7 +32,6 @@ export interface IParamsGetUser {
   searchType?: string;
 }
 
-
 export interface IRegisterBody {
   name?: string;
   userName?: string;
@@ -56,7 +55,6 @@ function login(body: ILoginBody): Promise<ILoginResponse> {
     {displayError: true}
   );
 }
-
 
 function updateUser(data: any) {
   return fetcher({url: path.updateUser, method: "put", data: data});

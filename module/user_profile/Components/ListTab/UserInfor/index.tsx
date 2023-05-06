@@ -57,7 +57,6 @@ export function UserInfor(): JSX.Element {
     </div>
   );
 
-
   const getDataUser = (): Promise<any> => ApiAddress.getUser();
   const dataUser = useQuery("GET_DATA_INFO_USER", getDataUser);
   useEffect(() => {
