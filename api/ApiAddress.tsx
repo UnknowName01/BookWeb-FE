@@ -6,7 +6,7 @@ const path = {
   create: "/category/create",
   getAll: "/address/get-all-address-By",
   delete: "/address/update-address-status",
-  getAllUserPath: "/user/list_user",
+  getAllUserPath: "/user/get_all_users",
   getUserPath: "/user",
   categoryPath: "category/information",
 };

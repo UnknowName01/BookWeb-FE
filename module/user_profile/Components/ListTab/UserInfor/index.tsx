@@ -57,15 +57,6 @@ export function UserInfor(): JSX.Element {
     </div>
   );
 
-  useEffect(() => {
-    ApiUser.getUser().then((res) => {
-      setData({
-        ...res,
-        dob: moment(res.dob),
-      });
-      setImageUrl(res?.imageUrl);
-    });
-  }, []);
 
   const getDataUser = (): Promise<any> => ApiAddress.getUser();
   const dataUser = useQuery("GET_DATA_INFO_USER", getDataUser);
