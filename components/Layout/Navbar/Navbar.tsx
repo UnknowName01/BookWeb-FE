@@ -42,6 +42,7 @@ export default function Navbar(): JSX.Element {
   const [userSocial, setUserSocial] = useAuthState(authFirebase);
   const {setSearchHomeListBook} = useContext(ContextSearchHome);
 
+  // console.log("|user", user);
   const handleSearch = (valueSearch: any): void => {
     console.log("valueSearch", valueSearch.target.value);
 
@@ -201,7 +202,7 @@ export default function Navbar(): JSX.Element {
           <PhoneOutlined style={{color: "white"}} />
         </div>
         <div className="author-navbar">
-          {user?.token ? (
+          {user?.accessToken ? (
             <div className="author-infor">
               <Dropdown menu={{items}}>
                 <a onClick={(e) => e.preventDefault()}>

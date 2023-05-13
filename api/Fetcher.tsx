@@ -160,7 +160,7 @@ export async function fetcher<T>(
   // Access Token
   // console.log("defaultOptions", defaultOptions);
   if (defaultOptions.token) {
-    apiClient.defaults.headers.common.Authorization = `Bearer ${defaultOptions.token}`;
+    apiClient.defaults.headers.common.Authorization = `Bearer ${defaultOptions.accessToken}`;
   } else {
     if (defaultOptions.withToken) {
       const state = store.getState();

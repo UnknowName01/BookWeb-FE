@@ -185,11 +185,11 @@ export default function SelfOneBook(props: ISelfSetBook): JSX.Element {
           required
           name="statusQuo"
           rules={[{required: true, message: "Vui lòng nhập trường này"}]}
-          initialValue={"Còn mới"}
+          initialValue="Còn mới"
         >
           <Radio.Group name="statusQuo">
-            <Radio value={"Còn mới"}>Còn mới</Radio>
-            <Radio value={"Đã qua sử dụng"}>Đã qua sử dụng</Radio>
+            <Radio value="Còn mới">Còn mới</Radio>
+            <Radio value="Đã qua sử dụng">Đã qua sử dụng</Radio>
           </Radio.Group>
         </Form.Item>
         <Form.Item

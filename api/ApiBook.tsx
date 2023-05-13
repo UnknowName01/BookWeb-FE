@@ -1,7 +1,7 @@
 import {fetcher} from "./Fetcher";
 
 const path = {
-  category: "/category/get",
+  category: "/category/get-all-category",
   get_all_post: "/book",
   createBookPath: "/book/create",
   deletePath: "/book/delete",

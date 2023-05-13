@@ -62,10 +62,10 @@ export function CategoryManager(): JSX.Element {
     },
   ];
   const handleSave = (dataNew: any): void => {
-    console.log("datanew", dataNew.category);
+    console.log("datanew", dataNew.cateName);
     if (openModal === "new") {
       ApiAddress.createCategory({
-        name: dataNew.category,
+        cateName: dataNew.cateName,
       }).then((res) => {
         if (res) {
           dataListCategory.refetch();
@@ -152,7 +152,7 @@ export function CategoryManager(): JSX.Element {
           <Form.Item
             label="Thể loại"
             rules={[{required: true, message: "Vui lòng nhập trường này"}]}
-            name="category"
+            name="cateName"
           >
             <Input placeholder="Nhập Thể loại" />
           </Form.Item>

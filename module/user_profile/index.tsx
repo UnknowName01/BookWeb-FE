@@ -35,15 +35,6 @@ export function UserProfile(): JSX.Element {
       case "ManagerUserAdmin":
         element = <ManagerUserAdmin />;
         break;
-      case "HistoryPost":
-        element = <HistoryPost />;
-        break;
-      case "PurchaseOrderManagerment":
-        element = <PurchaseOrderManagerment />;
-        break;
-      case "Complaint":
-        element = <Complaint />;
-        break;
       default:
         element = <UserInfor />;
     }

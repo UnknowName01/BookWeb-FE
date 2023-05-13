@@ -13,6 +13,7 @@ export default function PostToSelf(): JSX.Element {
   const [category, setCategory] = useState<any>([]);
   const createBookMutate = useMutation(ApiBook.createBook);
 
+  console.log("category", category);
   const handleSubmitBook = (value: any) => {
     console.log("valuess", value);
 
@@ -49,7 +50,7 @@ export default function PostToSelf(): JSX.Element {
           validateOnBlur
           // validationSchema={LoginValidation}
         >
-          {({handleSubmit}): JSX.Element => {
+          {({handleSubmit, handleChange}): JSX.Element => {
             return (
               <div className="post-to-self-form">
                 <div className="post-to-self-main">
@@ -96,11 +97,22 @@ export default function PostToSelf(): JSX.Element {
                   </div>
                   <div className="item">
                     <span className="title">Category</span>
-                    <SelectGlobal
-                      name="categoryId"
-                      placeholder="Category"
-                      style={{width: "100%"}}
-                      options={category}
+                    {/* <SelectGlobal */}
+                    {/*  name="categoryId" */}
+                    {/*  placeholder="Category" */}
+                    {/*  style={{width: "100%"}} */}
+                    {/*  options={category} */}
+                    {/* /> */}
+                    <Select
+                      defaultValue="lucy"
+                      style={{width: 120}}
+                      onChange={handleChange}
+                      options={[
+                        {value: "jack", label: "Jack"},
+                        {value: "lucy", label: "Lucy"},
+                        {value: "Yiminghe", label: "yiminghe"},
+                        {value: "disabled", label: "Disabled", disabled: true},
+                      ]}
                     />
                     <ErrorMessageGlobal name="categoryId" />
                   </div>

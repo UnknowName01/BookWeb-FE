@@ -3,16 +3,16 @@ import store from "@app/redux/store";
 
 const path = {
   update: "/address/update-address",
-  create: "/category/create",
-  getAll: "/address/get-all-address-By",
+  create: "/category/staff/create-category",
   delete: "/address/update-address-status",
   getAllUserPath: "/user/get_all_users",
-  getUserPath: "/user",
+  getUserPath: "/user/get_info",
   categoryPath: "category/information",
+  getAllCategory: "/category/get-all-category",
 };
 
-function createCategory(data: any) {
-  return fetcher({url: path.create, method: "post", data: data});
+function createCategory(data: {cateName: string}) {
+  return fetcher({url: `${path.create}/${data.cateName}`, method: "post"});
 }
 
 function updateAddress(data: any) {
@@ -39,7 +39,7 @@ function getAllUser() {
 
 function getAllCategory() {
   return fetcher({
-    url: path.categoryPath,
+    url: path.getAllCategory,
     method: "get",
   });
 }

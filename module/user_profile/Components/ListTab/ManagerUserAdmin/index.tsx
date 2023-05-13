@@ -29,7 +29,7 @@ export function ManagerUserAdmin(): JSX.Element {
   }, []);
   // console.log("dataListUser", dataListUser);
 
-  const columns:any = [
+  const columns: any = [
     {
       title: "ID",
       dataIndex: "id",

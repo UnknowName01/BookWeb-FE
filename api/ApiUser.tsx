@@ -31,7 +31,6 @@ export interface IParamsGetUser {
   searchType?: string;
 }
 
-
 export interface IRegisterBody {
   name?: string;
   userName?: string;
@@ -41,7 +40,7 @@ export interface IRegisterBody {
 const path = {
   login: "/auth/login",
   register: "/auth/register",
-  updateUser: "/auth/update-user-infor",
+  updateUser: "/user/edit_user",
   changePass: "/auth/change_password",
 };
 
@@ -56,9 +55,8 @@ function login(body: ILoginBody): Promise<ILoginResponse> {
   );
 }
 
-
 function updateUser(data: any) {
-  return fetcher({url: path.updateUser, method: "put", data: data});
+  return fetcher({url: path.updateUser, method: "post", data: data});
 }
 
 function changePass(data: any) {

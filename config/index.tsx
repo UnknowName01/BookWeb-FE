@@ -4,10 +4,11 @@ const HEIGHT_NAVBAR = 55;
 // NAME
 const STORE_NAME = "state";
 
+const BASE_URL = "http://0.tcp.jp.ngrok.io:17112";
 // NETWORK
 const NETWORK_CONFIG = {
-  HOST: process.env.NEXT_PUBLIC_APP_URL,
-  API_BASE_URL: process.env.NEXT_PUBLIC_APP_URL + "/api/",
+  HOST: BASE_URL,
+  API_BASE_URL: BASE_URL + "/api/",
   BASE_URL: process.env.NEXT_PUBLIC_WEB_URL,
   TIMEOUT: 30000,
   RETRY: false,
