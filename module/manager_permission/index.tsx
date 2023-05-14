@@ -18,12 +18,7 @@ export function ManagerPermission(): JSX.Element {
   const {searchHomeListBook} = useContext(ContextSearchHome);
 
   const [totalItemBook, setTotalItemBook] = useState(0);
-  const listDataCity = [
-    {
-      value: "null",
-      label: "Tất cả",
-    },
-  ];
+
   // const createBookMutate = useMutation(ApiBook.interaction);
 
   const toDetailBook = (item: any): void => {
@@ -82,16 +77,6 @@ export function ManagerPermission(): JSX.Element {
       optionSelect: [],
     },
   ];
-  const getDataListAllCity = (): Promise<any> => ApiBook.getAllCity();
-  const getDataCity = useQuery("GET_DATA_CITY", getDataListAllCity);
-  if (getDataCity?.data) {
-    getDataCity.data.map((item: any) =>
-      listDataCity.push({
-        value: item,
-        label: item,
-      })
-    );
-  }
 
   useEffect(() => {
     dataListBook.refetch();
