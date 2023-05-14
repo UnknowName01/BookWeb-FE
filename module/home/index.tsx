@@ -257,7 +257,7 @@ export function Home(): JSX.Element {
       <CaroselComponents
         title="Lượt xem nhiều nhất"
         // keyRender="watch"
-        listItemData={listPosting}
+        listItemData={listUser}
       />
       {/* <CaroselComponents title="Top người dùng" listItem={listUser} /> */}
       <CaroselComponents
