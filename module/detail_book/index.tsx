@@ -72,8 +72,18 @@ export function DetailBook(): JSX.Element {
         </div>
         <div className="description">
           <div className="left">
-            <h3>Mô tả</h3>
-            <p>{getDetailBook?.data?.content}</p>
+            <h3>Đăng kí lấy sách</h3>
+            <Button
+              onClick={() => {
+                notification.success({
+                  message: "Lấy sách thành công!",
+                  duration: 3,
+                });
+              }}
+              type="primary"
+            >
+              Lấy sách
+            </Button>
           </div>
           <div className="right">
             <h3>Liên hệ</h3>
