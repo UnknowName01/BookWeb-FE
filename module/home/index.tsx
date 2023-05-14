@@ -120,17 +120,17 @@ export function Home(): JSX.Element {
       <CaroselComponents
         title="Top Like"
         keyRender="like"
-        listItemData={dataListBook?.data?.topLike}
+        listItemData={listPosting}
       />
       <CaroselComponents
         title="Top Dislike"
         keyRender="dislike"
-        listItemData={dataListBook?.data?.topWatch}
+        listItemData={listPosting}
       />
       <CaroselComponents
         title="Lượt xem nhiều nhất"
         keyRender="watch"
-        listItemData={dataListBook?.data?.topDislike}
+        listItemData={listPosting}
       />
       {/* <CaroselComponents title="Top người dùng" listItem={listUser} /> */}
       <CaroselComponents
