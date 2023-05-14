@@ -19,7 +19,7 @@ export default function ListAllBook(): JSX.Element {
     "GET_DATA_LIST_ALL_BOOK_ADMIN",
     getDataListAllBook
   );
-  console.log("GET_DATA_LIST_ALL_BOOK_ADMIN", dataListBook);
+  console.log("GET_DATA_LIST_ALL_BOOK_ADMIN", dataListBook?.data);
 
   const editEmployee = useMutation(ApiBook.deleteBook);
 
@@ -57,9 +57,9 @@ export default function ListAllBook(): JSX.Element {
     },
     {
       title: "Tên sách",
-      dataIndex: "title",
+      dataIndex: "name",
       align: "center",
-      key: "title",
+      key: "name",
       width: 200,
     },
     {
@@ -68,7 +68,7 @@ export default function ListAllBook(): JSX.Element {
       align: "center",
       key: "title",
       render: (_: any, record: any, index: any) => (
-        <div>{record?.categoryData?.name}</div>
+        <div>{record?.category?.name}</div>
       ),
       width: 200,
     },
@@ -83,11 +83,18 @@ export default function ListAllBook(): JSX.Element {
             width={100}
             height={140}
             style={{objectFit: "cover"}}
-            src={record.image}
+            src={record.images}
             preview={false}
           />
         </div>
       ),
+      width: 200,
+    },
+    {
+      title: "Mô tả",
+      dataIndex: "introduce",
+      align: "center",
+      key: "description",
       width: 200,
     },
     {

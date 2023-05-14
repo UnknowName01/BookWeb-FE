@@ -7,7 +7,7 @@ import {BreakCrumGlobal} from "@app/components/BreakCrumGlobal";
 import ApiBook from "@app/api/ApiBook";
 import FilterGroupGlobal from "@app/components/FilterGroupGlobal";
 import {LoadingGlobal} from "@app/components/Loading";
-import {useMutation, useQuery} from "react-query";
+import {useQuery} from "react-query";
 import {ContextSearchHome} from "@app/components/Layout/Sidebar/ContextProvider/ContextSearchHome";
 
 export function ManagerPermission(): JSX.Element {
@@ -126,17 +126,17 @@ export function ManagerPermission(): JSX.Element {
               <div className="text-title">{item?.name}</div>
               <div className="description">{item?.description}</div>
               <div className="category">Thể loại: {item?.category?.name}</div>
-              <div className="row-end">
-                <div>
-                  <div style={{display: "flex", alignItems: "center"}}>
-                    <DollarCircleOutlined />
-                    <div className="text-align-center">
-                      {/* {item.price ?? "Chưa có giá"} */}
-                      20.000đ
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* <div className="row-end"> */}
+              {/*  <div> */}
+              {/*    <div style={{display: "flex", alignItems: "center"}}> */}
+              {/*      <DollarCircleOutlined /> */}
+              {/*      <div className="text-align-center"> */}
+              {/*        /!* {item.price ?? "Chưa có giá"} *!/ */}
+              {/*        20.000đ */}
+              {/*      </div> */}
+              {/*    </div> */}
+              {/*  </div> */}
+              {/* </div> */}
             </div>
           ))
         )}
