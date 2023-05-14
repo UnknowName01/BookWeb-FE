@@ -187,29 +187,6 @@ export function Home(): JSX.Element {
       title: "Những đòn tâm lý trong thuyết phục",
       buy: "TPHCM",
     },
-    {
-      image:
-        "https://vtv1.mediacdn.vn/thumb_w/650/2020/8/29/chadwick-boseman-elle-man-feature-1598674387430539628601.jpg",
-      title: "Cho Đi Và Nhận Lại",
-      buy: "TPHCM",
-    },
-    {
-      image:
-        "https://cms.dmpcdn.com/cdn-cgi/image/fit=cover,quality=85,f=auto/https://cms.dmpcdn.com/article/2021/05/30/cc7430c0-c160-11eb-8020-bb86c50a8d49_original.jpg",
-      title: "Cho Đi Và Nhận Lại",
-      buy: "TPHCM",
-    },
-    {
-      image:
-        "https://kenh14cdn.com/thumb_w/660/2018/5/16/photo-4-15264888122402032180945.jpg",
-      title: "Cho Đi Và Nhận Lại",
-      buy: "TPHCM",
-    },
-    {
-      image: "https://mcdn.coolmate.me/image/July2022/image1_91.png",
-      title: "Cho Đi Và Nhận Lại",
-      buy: "TPHCM",
-    },
   ];
 
   const handleViewAll = (): void => {
@@ -249,11 +226,11 @@ export function Home(): JSX.Element {
         // keyRender="like"
         listItemData={listLider}
       />
-      <CaroselComponents
+      {/* <CaroselComponents
         title="Top Dislike"
         // keyRender="dislike"
         listItemData={listUser}
-      />
+      /> */}
       <CaroselComponents
         title="Lượt xem nhiều nhất"
         // keyRender="watch"
