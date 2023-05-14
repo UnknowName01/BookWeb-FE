@@ -54,7 +54,7 @@ export function UserInfor(): JSX.Element {
     <div className="user-profile-tab-container">
       <h3>THÔNG TIN TÀI KHOẢN</h3>
       <div style={{width: "60%", margin: "12px 0"}}>
-        {JSON.stringify(dataUser?.data)}
+        {/* {JSON.stringify(dataUser?.data)} */}
         <Formik
           initialValues={{
             username: dataUser?.data?.username,

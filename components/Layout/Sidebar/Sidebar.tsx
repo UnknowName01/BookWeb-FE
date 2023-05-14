@@ -54,7 +54,7 @@ export default function Sidebar(): JSX.Element {
       // } else {
       //   itemsTmp.push(getItem(item.name, item.id));
       // }
-      console.log("itemsTmp", itemsTmp);
+      // console.log("itemsTmp", itemsTmp);
     });
     const itemsTmpNew = itemsTmp.map((it: any) => {
       return {
@@ -77,7 +77,7 @@ export default function Sidebar(): JSX.Element {
     getDataListCategory,
     {
       onSuccess: (res) => {
-        console.log("Res", res);
+        // console.log("Res", res);
         const objectSubmit = [];
         res.map((item, index) => {
           const newObject = {

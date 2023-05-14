@@ -55,7 +55,7 @@ export function ManagerPermission(): JSX.Element {
   // handle getDataListAllBook
   const getDataListAllBook = (): Promise<any> => ApiBook.getAllPost();
   const dataListBook = useQuery("GET_DATA_LIST_ALL_BOOK", getDataListAllBook);
-  console.log("dataListBook", dataListBook);
+  console.log("dataListBook", dataListBook?.data);
 
   const listSelectOption = [
     {
@@ -79,7 +79,7 @@ export function ManagerPermission(): JSX.Element {
       placeholder: "Chọn thành phố",
       width: 120,
       handleChange: console.log("handleChange"),
-      optionSelect: listDataCity ?? [],
+      optionSelect: [],
     },
   ];
   const getDataListAllCity = (): Promise<any> => ApiBook.getAllCity();
@@ -92,9 +92,6 @@ export function ManagerPermission(): JSX.Element {
       })
     );
   }
-
-  console.log("getDataCity", getDataCity?.data);
-  console.log("listDataCity", listDataCity);
 
   useEffect(() => {
     dataListBook.refetch();
@@ -139,13 +136,11 @@ export function ManagerPermission(): JSX.Element {
                 preview={false}
                 width={160}
                 height={160}
-                src={item?.image}
+                src={item?.images}
               />
-              <div className="text-title">{item?.title}</div>
-              <div className="description">{item?.introduce}</div>
-              <div className="category">
-                Thể loại: {item?.categoryData?.name}
-              </div>
+              <div className="text-title">{item?.name}</div>
+              <div className="description">{item?.description}</div>
+              <div className="category">Thể loại: {item?.category?.name}</div>
               <div className="row-end">
                 <div>
                   <div style={{display: "flex", alignItems: "center"}}>

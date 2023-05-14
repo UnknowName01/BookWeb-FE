@@ -32,7 +32,7 @@ export default function ListAllBook(): JSX.Element {
         },
         {
           onSuccess: (res) => {
-            console.log("res", res);
+            // console.log("res", res);
             dataListBook.refetch();
             notification.success({
               message: "Xoá thành công!",
