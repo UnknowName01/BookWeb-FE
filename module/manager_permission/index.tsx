@@ -24,24 +24,25 @@ export function ManagerPermission(): JSX.Element {
       label: "Tất cả",
     },
   ];
-  const createBookMutate = useMutation(ApiBook.interaction);
+  // const createBookMutate = useMutation(ApiBook.interaction);
 
   const toDetailBook = (item: any): void => {
+    console.log("item", item);
     router.push({
       pathname: "/detail_book",
-      query: {categoryId: item.categoryId, bookId: item.id},
+      query: {bookId: item.id},
     });
-    createBookMutate.mutate(
-      {
-        bookId: item.id,
-        reactionId: 3,
-      },
-      {
-        onSuccess: (res) => {
-          console.log("|asdasdasdasd", res);
-        },
-      }
-    );
+    // createBookMutate.mutate(
+    //   {
+    //     bookId: item.id,
+    //     reactionId: 3,
+    //   },
+    //   {
+    //     onSuccess: (res) => {
+    //       console.log("|asdasdasdasd", res);
+    //     },
+    //   }
+    // );
   };
 
   const handleChangePage = (page: number, pageSizeNew: number) => {

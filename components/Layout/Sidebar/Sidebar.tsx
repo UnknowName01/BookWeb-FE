@@ -8,6 +8,8 @@ import type {MenuProps} from "antd";
 import {BlockOutlined} from "@ant-design/icons";
 import {useRouter} from "next/router";
 import {useDispatch} from "react-redux";
+import ApiAddress from "@app/api/ApiAddress";
+import {useQuery} from "react-query";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -69,12 +71,35 @@ export default function Sidebar(): JSX.Element {
     );
     // console.log("click ", e);
   };
+  const getDataListCategory = (): Promise<any> => ApiAddress.getAllCategory();
+  const dataListCategory = useQuery(
+    "GET_DATA_LIST_CATEGORY_HOME",
+    getDataListCategory,
+    {
+      onSuccess: (res) => {
+        console.log("Res", res);
+        const objectSubmit = [];
+        res.map((item, index) => {
+          const newObject = {
+            value: item.id,
+            label: item.name,
+          };
+          objectSubmit.push(newObject);
+        });
+        console.log("newObject", objectSubmit);
+        setCategory(objectSubmit);
+        dispatch(categorys(res as any));
+      },
+    }
+  );
+
   useEffect(() => {
-    ApiBook.getCategory().then((res) => {
-      console.log("ApiBook.getCategory", res);
-      setCategory(res);
-      dispatch(categorys(res as any));
-    });
+    // ApiBook.getCategory().then((res) => {
+    //   console.log("ApiBook.getCategory", res);
+    //   setCategory(res);
+    //   dispatch(categorys(res as any));
+    // });
+    dataListCategory.refetch();
   }, []);
 
   return (

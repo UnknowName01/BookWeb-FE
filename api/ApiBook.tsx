@@ -2,7 +2,7 @@ import {fetcher} from "./Fetcher";
 
 const path = {
   category: "/category/get-all-category",
-  get_all_post: "/book",
+  get_all_post: "/book/get-all-book",
   createBookPath: "/book/create",
   deletePath: "/book/delete",
   interactionPath: "/interaction/create",
@@ -54,7 +54,7 @@ function getCategory() {
   return fetcher({url: path.category, method: "get"});
 }
 function getBookDetail(id: number) {
-  return fetcher({url: `/book/${id}`, method: "get"});
+  return fetcher({url: `/book/get-book-by-id/${id}`, method: "get"});
 }
 
 function searchPost(search: string) {
@@ -65,7 +65,7 @@ function searchPost(search: string) {
 }
 
 function createBook(params): Promise<any> {
-  return fetcher({url: path.createBookPath, method: "post", params: params});
+  return fetcher({url: path.createBookPath, method: "post", data: params});
 }
 
 function deleteBook(params: {id: number}): Promise<any> {

@@ -7,17 +7,17 @@ import {ButtonGlobal} from "@app/components/ButtonGlobal";
 import {Formik} from "formik";
 import {SelectGlobal} from "@app/components/FormGlobal";
 import {useMutation} from "react-query";
-import {notification} from "antd";
+import {notification, Select} from "antd";
 
 export default function PostToSelf(): JSX.Element {
-  const [category, setCategory] = useState<any>([]);
+  const [category, setCategory] = useState<any>();
   const createBookMutate = useMutation(ApiBook.createBook);
 
   console.log("category", category);
   const handleSubmitBook = (value: any) => {
     console.log("valuess", value);
 
-    createBookMutate.mutate(category, {
+    createBookMutate.mutate(value, {
       onSuccess: (res) => {
         console.log("|asdasdasdasd", res);
         notification.success({
@@ -30,7 +30,16 @@ export default function PostToSelf(): JSX.Element {
   useEffect(() => {
     ApiBook.getCategory().then((res) => {
       console.log("getCategory", res);
-      setCategory(res);
+      const objectSubmit = [];
+      res.map((item, index) => {
+        const newObject = {
+          value: item.id,
+          label: item.name,
+        };
+        objectSubmit.push(newObject);
+      });
+      console.log("newObject", objectSubmit);
+      setCategory(objectSubmit);
     });
   }, []);
 
@@ -39,9 +48,9 @@ export default function PostToSelf(): JSX.Element {
       <div>
         <Formik
           initialValues={{
-            title: "",
-            image: "",
-            content: "",
+            name: "",
+            images: "",
+            description: "",
             introduce: "",
             categoryId: "",
           }}
@@ -57,8 +66,8 @@ export default function PostToSelf(): JSX.Element {
                   <div className="item">
                     <span className="title">Tên sách</span>
                     <InputGlobal
-                      name="title"
-                      placeholder="Password"
+                      name="name"
+                      placeholder="Name"
                       className="detail-input"
                       onPressEnter={(): void => handleSubmit()}
                     />
@@ -68,7 +77,7 @@ export default function PostToSelf(): JSX.Element {
                   <div className="item">
                     <span className="title">Image</span>
                     <InputGlobal
-                      name="image"
+                      name="images"
                       placeholder="Image"
                       className="detail-input"
                       onPressEnter={(): void => handleSubmit()}
@@ -76,10 +85,10 @@ export default function PostToSelf(): JSX.Element {
                     <ErrorMessageGlobal name="image" />
                   </div>
                   <div className="item">
-                    <span className="title">Content</span>
+                    <span className="title">Description</span>
                     <InputGlobal
-                      name="content"
-                      placeholder="Content"
+                      name="description"
+                      placeholder="Description"
                       className="detail-input"
                       onPressEnter={(): void => handleSubmit()}
                     />
@@ -97,22 +106,11 @@ export default function PostToSelf(): JSX.Element {
                   </div>
                   <div className="item">
                     <span className="title">Category</span>
-                    {/* <SelectGlobal */}
-                    {/*  name="categoryId" */}
-                    {/*  placeholder="Category" */}
-                    {/*  style={{width: "100%"}} */}
-                    {/*  options={category} */}
-                    {/* /> */}
-                    <Select
-                      defaultValue="lucy"
-                      style={{width: 120}}
-                      onChange={handleChange}
-                      options={[
-                        {value: "jack", label: "Jack"},
-                        {value: "lucy", label: "Lucy"},
-                        {value: "Yiminghe", label: "yiminghe"},
-                        {value: "disabled", label: "Disabled", disabled: true},
-                      ]}
+                    <SelectGlobal
+                      name="categoryId"
+                      placeholder="Category"
+                      style={{width: "100%"}}
+                      options={category}
                     />
                     <ErrorMessageGlobal name="categoryId" />
                   </div>

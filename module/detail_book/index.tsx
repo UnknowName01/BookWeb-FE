@@ -25,14 +25,7 @@ export function DetailBook(): JSX.Element {
   const keyPage = "Bán";
   const user = useSelector((state: any) => state.user);
 
-  console.log("user", router);
-
-  const goToPayment = (value: string): void => {
-    router.push({
-      pathname: "/payment",
-      query: {keyPage: keyPage},
-    });
-  };
+  console.log("use111r", router.query.bookId);
 
   const handleGetBook = (book: any) => {
     const tmp = data.find((el: any) => el.bookId === book.bookId);
@@ -72,10 +65,10 @@ export function DetailBook(): JSX.Element {
   };
 
   const getDataDetailBook = (): Promise<any> =>
-    ApiBook.getBookDetail(router.query.bookId);
+    ApiBook.getBookDetail(Number(router.query.bookId));
   const getDetailBook = useQuery("GET_DATA_DETAIL_BOOK", getDataDetailBook);
 
-  console.log("getDetailBook", getDetailBook);
+  console.log("getDetailBook", getDetailBook?.data);
   useEffect(() => {
     getDetailBook.refetch();
   }, []);
@@ -84,13 +77,6 @@ export function DetailBook(): JSX.Element {
     <div className="detail-book-container-new">
       <Navbar />
       <div className="self-book">
-        <BreakCrumGlobal
-          listBreakcrum={
-            keyPage.toLowerCase() === "bán"
-              ? ["Trang chủ", "Mua sách"]
-              : ["Trang chủ", "Trao đổi sách"]
-          }
-        />
         <div className="main">
           <div className="image-book">
             <div className="icon">
@@ -114,58 +100,12 @@ export function DetailBook(): JSX.Element {
                   src={getDetailBook?.data?.image ?? []}
                 />
               </div>
-              <div className="horizontalLine" />
-              <div className="group-image-preview">{handleListImage()}</div>
+              {/* <div className="horizontalLine" /> */}
+              {/* <div className="group-image-preview">{handleListImage()}</div> */}
             </div>
           </div>
           <div className="detail-book">
-            <h2 style={{color: "#333"}}>{getDetailBook?.data?.title}</h2>
-            {keyPage.toLowerCase() === "bán" ? (
-              <div className="price">
-                <span style={{marginLeft: "5px"}}>
-                  {/* {getMoneyFormat(dataCurrent?.price) ?? 220.0}VND */}
-                  220.000VND
-                </span>
-              </div>
-            ) : (
-              <div>
-                <Button
-                  onClick={() => goToPayment("Bán")}
-                  type="primary"
-                  icon={<MoneyCollectOutlined />}
-                >
-                  Trao đổi
-                </Button>
-                <Button
-                  style={{marginLeft: 7}}
-                  type="primary"
-                  onClick={() => router.push("/chat-seller")}
-                >
-                  Chat với người bán
-                </Button>
-              </div>
-            )}
-
-            {keyPage.toLowerCase() === "bán" ? (
-              <div className="button-sale">
-                <Button
-                  type="primary"
-                  onClick={() => goToPayment("Mua")}
-                  icon={<MoneyCollectOutlined />}
-                >
-                  Mua ngay
-                </Button>
-                <Button
-                  style={{marginLeft: 7}}
-                  type="primary"
-                  onClick={() => router.push("/chat-seller")}
-                >
-                  Chat với người bán
-                </Button>
-              </div>
-            ) : (
-              <div />
-            )}
+            <h2 style={{color: "#333"}}>{getDetailBook?.data?.name}</h2>
 
             <div className="group-text">
               <div className="row-text">
@@ -176,22 +116,22 @@ export function DetailBook(): JSX.Element {
               </div>
               <div className="row-text">
                 <div className="title">Mô tả</div>
-                <div className="detail">{getDetailBook?.data?.introduce}</div>
+                <div className="detail">{getDetailBook?.data?.description}</div>
               </div>
-              <div className="row-text">
-                <div className="title">Lượt xem</div>
-                <div className="detail">{dataCurrent?.coverType ?? 0}</div>
-              </div>
-              <div className="row-text">
-                <div className="title">Yêu thích</div>
-                <div className="detail">{dataCurrent?.statusQuo ?? 0}</div>
-              </div>
-              <div className="row-text">
-                <div className="title">Dislike</div>
-                <div className="detail">
-                  {dataCurrent?.subcategoryName ?? 0}
-                </div>
-              </div>
+              {/* <div className="row-text"> */}
+              {/*  <div className="title">Lượt xem</div> */}
+              {/*  <div className="detail">{dataCurrent?.coverType ?? 0}</div> */}
+              {/* </div> */}
+              {/* <div className="row-text"> */}
+              {/*  <div className="title">Yêu thích</div> */}
+              {/*  <div className="detail">{dataCurrent?.statusQuo ?? 0}</div> */}
+              {/* </div> */}
+              {/* <div className="row-text"> */}
+              {/*  <div className="title">Dislike</div> */}
+              {/*  <div className="detail"> */}
+              {/*    {dataCurrent?.subcategoryName ?? 0} */}
+              {/*  </div> */}
+              {/* </div> */}
             </div>
           </div>
         </div>
