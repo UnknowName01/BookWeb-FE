@@ -20,49 +20,10 @@ import {useSelector} from "react-redux";
 
 export function DetailBook(): JSX.Element {
   const router = useRouter();
-  const [data, setData] = useState<any>([]);
   const [dataCurrent, setDataCurent] = useState<any>();
-  const keyPage = "Bán";
   const user = useSelector((state: any) => state.user);
 
-  console.log("use111r", router.query.bookId);
-
-  const handleGetBook = (book: any) => {
-    const tmp = data.find((el: any) => el.bookId === book.bookId);
-    setDataCurent(tmp);
-  };
-
-  const handleListImage = () => {
-    return data.map((el: any, index: number) => (
-      <div className="item-book" onClick={() => handleGetBook(el)} key={index}>
-        <Image
-          width={50}
-          height={70}
-          preview={false}
-          src={el.bookImages[0]?.url}
-        />
-      </div>
-    ));
-  };
-
-  const createBookMutate = useMutation(ApiBook.interaction);
-
-  const handleInteraction = (value: any) => {
-    createBookMutate.mutate(
-      {
-        bookId: router.query.bookId,
-        reactionId: value,
-      },
-      {
-        onSuccess: (res) => {
-          console.log("|asdasdasdasd", res);
-          notification.success({
-            message: "Thêm cảm xúc thành công!",
-          });
-        },
-      }
-    );
-  };
+  console.log("use111r", user);
 
   const getDataDetailBook = (): Promise<any> =>
     ApiBook.getBookDetail(Number(router.query.bookId));
@@ -79,25 +40,13 @@ export function DetailBook(): JSX.Element {
       <div className="self-book">
         <div className="main">
           <div className="image-book">
-            <div className="icon">
-              <div className="group-icon">
-                <LikeOutlined
-                  onClick={() => handleInteraction(1)}
-                  style={{fontSize: "25px", width: "35px"}}
-                />
-                <DislikeOutlined
-                  onClick={() => handleInteraction(2)}
-                  style={{fontSize: "25px", width: "45px"}}
-                />
-              </div>
-            </div>
             <div className="image">
               <div style={{display: "flex", justifyContent: "center"}}>
                 <Image
                   width={200}
                   height={260}
                   preview={false}
-                  src={getDetailBook?.data?.image ?? []}
+                  src={getDetailBook?.data?.images ?? []}
                 />
               </div>
               {/* <div className="horizontalLine" /> */}
@@ -118,20 +67,6 @@ export function DetailBook(): JSX.Element {
                 <div className="title">Mô tả</div>
                 <div className="detail">{getDetailBook?.data?.description}</div>
               </div>
-              {/* <div className="row-text"> */}
-              {/*  <div className="title">Lượt xem</div> */}
-              {/*  <div className="detail">{dataCurrent?.coverType ?? 0}</div> */}
-              {/* </div> */}
-              {/* <div className="row-text"> */}
-              {/*  <div className="title">Yêu thích</div> */}
-              {/*  <div className="detail">{dataCurrent?.statusQuo ?? 0}</div> */}
-              {/* </div> */}
-              {/* <div className="row-text"> */}
-              {/*  <div className="title">Dislike</div> */}
-              {/*  <div className="detail"> */}
-              {/*    {dataCurrent?.subcategoryName ?? 0} */}
-              {/*  </div> */}
-              {/* </div> */}
             </div>
           </div>
         </div>
@@ -147,21 +82,13 @@ export function DetailBook(): JSX.Element {
                 <UserOutlined style={{fontSize: 20}} />
               </div>
               <div className="detail-icon">
-                <h4>{user?.name}</h4>
+                <h4>{user?.username}</h4>
                 <CheckCircleFilled
                   style={{marginRight: 4, marginLeft: 4, color: "#26a541"}}
                 />
                 <h5>Xác thực</h5>
               </div>
             </div>
-            {/* <div className="row1">
-              <div className="icon">
-                <GlobalOutlined style={{fontSize: 20}} />
-              </div>
-              <div className="detail-icon">
-                <h5>North West Delhi (110009), DELHI</h5>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

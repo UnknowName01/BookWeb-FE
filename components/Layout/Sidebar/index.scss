@@ -8,9 +8,14 @@
   }
   .menu {
     height: calc(100vh - 105px);
-    overflow-y: scroll;
+    //overflow-y: scroll;
     position: fixed;
     top: 85px;
+
+    .list-menu {
+      overflow-y: scroll;
+      height: calc(100vh - 215px);
+    }
   }
   .menu::-webkit-scrollbar {
     width: 4px;

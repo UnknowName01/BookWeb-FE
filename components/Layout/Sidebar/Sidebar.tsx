@@ -94,11 +94,6 @@ export default function Sidebar(): JSX.Element {
   );
 
   useEffect(() => {
-    // ApiBook.getCategory().then((res) => {
-    //   console.log("ApiBook.getCategory", res);
-    //   setCategory(res);
-    //   dispatch(categorys(res as any));
-    // });
     dataListCategory.refetch();
   }, []);
 
@@ -118,14 +113,16 @@ export default function Sidebar(): JSX.Element {
         >
           Tất cả thể loại
         </div>
-        <Menu
-          onClick={onClick}
-          style={{width: 256}}
-          mode="inline"
-          defaultSelectedKeys={[key as any]}
-          defaultOpenKeys={[((sub as any) * 1 + 0.1).toString() as any]}
-          items={convertItemSidebar()}
-        />
+        <div className="list-menu">
+          <Menu
+            onClick={onClick}
+            style={{width: 256, overflow: "scroll"}}
+            mode="inline"
+            defaultSelectedKeys={[key as any]}
+            defaultOpenKeys={[((sub as any) * 1 + 0.1).toString() as any]}
+            items={convertItemSidebar()}
+          />
+        </div>
       </div>
     </div>
   );
