@@ -76,7 +76,7 @@ export function DetailBook(): JSX.Element {
             <Button
               onClick={() => {
                 notification.success({
-                  message: "Lấy sách thành công!",
+                  message: "Lấy sách thành công, vui lòng liên hệ chủ sở hữu!",
                   duration: 3,
                 });
               }}
@@ -92,7 +92,7 @@ export function DetailBook(): JSX.Element {
                 <UserOutlined style={{fontSize: 20}} />
               </div>
               <div className="detail-icon">
-                <h4>{user?.username}</h4>
+                <h4>0379864575</h4>
                 <CheckCircleFilled
                   style={{marginRight: 4, marginLeft: 4, color: "#26a541"}}
                 />
